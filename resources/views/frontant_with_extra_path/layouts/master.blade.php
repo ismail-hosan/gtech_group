@@ -72,7 +72,7 @@
     .bordered{
         border:1px solid #ddd;
     }
-    .max-width-200{max-width:200px;}
+    .max-width-200{max-width:129px;}
     .block-center{
         display:block !important;
         margin:0 auto;
