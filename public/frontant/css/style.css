@@ -51,9 +51,9 @@ h4,
 h5,
 h6 {
 	
-	color: #343434;
+	/* color: #343434; */
 	line-height: 1.2;
-	font-family: 'Sintony', sans-serif;
+	/* font-family: 'Sintony', sans-serif; */
 }
 
 h1 a,
@@ -79,7 +79,7 @@ h2 {
 
 h3 {
 	font-size: 18px;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	font-weight: 700;
 }
 
@@ -121,7 +121,7 @@ p {
 }
 
 a {
-	color:#ffffff;
+	color:#f01a1a;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
 	-ms-transition: all 0.2s ease-in-out;
@@ -407,6 +407,7 @@ tbody {
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	border-bottom: none;
+	position: relative;
 }
 
 .header {

@@ -44,7 +44,7 @@ Contact Us
 
 @section('main-content')
 
-<div class="containers" style="background-image: url('public/frontant/images/Indoor-Outdoor.jpg');background-size: cover;
+<div class="containers" style="background-image: url('public/frontant/images/myimage.jpg');background-size: cover;
       background-position: center;">
     <div class="container my-5">
         <div class="row">

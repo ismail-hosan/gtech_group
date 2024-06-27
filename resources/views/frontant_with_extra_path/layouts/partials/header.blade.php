@@ -64,8 +64,8 @@
                                                     class="{{ Request::routeIs('menu.aboutus.ourclient') ? 'active' : '' }}">
                                                     <a href="#">Director Message</a>
                                                 </li>
-                                                <li class="{{ Request::routeIs('menu.aboutus.partnership') ? 'active' : '' }}">
-                                                    <a href="#">Management Team</a>
+                                                <li class="{{ Request::routeIs('menu.aboutus.ourteam') ? 'active' : '' }}">
+                                                    <a href="{{Route('menu.aboutus.ourteam')}}">Management Team</a>
                                                 </li>
                                             </ul>
                                         </li>

@@ -24,7 +24,7 @@
 
 .slider-item img {
     width: 100%;
-    height: 600px;
+    height: 450px;
 }
 
 .slider-pagination {

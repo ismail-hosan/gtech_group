@@ -75,8 +75,8 @@
         <div class="container">
             <div class="text-center">
                 <button class="btn btn-default filter-button" data-filter="all">All</button>
-                <button class="btn btn-default filter-button" data-filter="commercial">Commercial</button>
-                <button class="btn btn-default filter-button" data-filter="residential">Residential</button>
+                <button class="btn btn-default filter-button" data-filter="commercial">ongoing</button>
+                <button class="btn btn-default filter-button" data-filter="residential">upcoming</button>
             </div>
             <div class="row">
             @if($images)

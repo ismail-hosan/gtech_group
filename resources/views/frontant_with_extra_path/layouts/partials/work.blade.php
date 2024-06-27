@@ -20,8 +20,10 @@
             <div class="col-md-12">
                 <div class="container text-center">
                     {{-- <h2>Why Choose Us ?</h2> --}}
-                    <h2><span style="background: #003166;color:#fff;border-radius:39px 0px;padding:16px 27px;font-family: 'Sintony', sans-serif;">Our Services</span>
-                        <!-- <span style="background: #ef622b;border-radius:10px 0px;padding:0px 5px;color:#fff;">Choose Us ?</span></h2> -->
+                    <h2 class="text-center"><span class="title1">Our</span>
+                        <span class="title2"> Services</span>
+                    </h2>
+                    <!-- <span style="background: #ef622b;border-radius:10px 0px;padding:0px 5px;color:#fff;">Choose Us ?</span></h2> -->
                 </div><br>
                 <div class="row">
                     @foreach($services as $value)

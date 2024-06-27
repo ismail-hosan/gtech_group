@@ -100,16 +100,19 @@
 </div>  -->
 
 <style>
-@media (max-width: 767px) {
-    .text {
-        display: flex;
+    @media (max-width: 767px) {
+        .text {
+            display: flex;
+        }
     }
-}
 </style>
 <div class="container text-center ">
     {{-- <h2>Why Choose Us ?</h2> --}}
-    <h2 class=""><span class="realstates" style="background: #003166;color:#fff;border-radius:39px 0px;padding:16px 27px;margin-: 43rem;font-family: 'Sintony', sans-serif;">Why to choose us</span>
-        <!-- <span style="background: #ef622b;border-radius:10px 0px;padding:0px 5px;color:#fff;">Choose Us ?</span></h2> -->
+    <!-- <h2 class=""><span class="realstates" style="background: #003166;color:#fff;border-radius:39px 0px;padding:16px 27px;margin-: 43rem;font-family: 'Sintony', sans-serif;">Why choose us</span> -->
+    <!-- <span style="background: #ef622b;border-radius:10px 0px;padding:0px 5px;color:#fff;">Choose Us ?</span></h2> -->
+    <h2 class="text-center"><span class="title1">Why</span>
+        <span class="title2">Choose Us?</span>
+    </h2>
 </div> <br>
 
 <style>
@@ -123,8 +126,9 @@
         justify-content: center;
         height: 100px;
         margin: 10px 0;
-        background-color: #adacac;
+        background-color: #ffffff;
         padding: 71px;
+        flex-direction: column;
     }
 
     .backgrounds {
@@ -142,15 +146,21 @@
 
     .feature-boxs {
         font-family: 'Sintony', sans-serif;
+
     }
-    .feature-boxs:hover
-    {
+
+    .feature-boxs:hover {
         background-color: #d2e603;
     }
 
-    .btn:hover
-    {
+    .btn:hover {
         fill: #fff;
+    }
+
+    h4 {
+        font-size: 13px;
+        color: #8d1f88;
+        font-weight: 800;
     }
 </style>
 
@@ -162,39 +172,45 @@
         <div class="row justify-content-center text-center">
             <div class="col-md-6" style="font-family: 'Sintony', sans-serif;">
                 <div class="text-center" style="margin-top: 109px;">
-                    <p class="text">bel aims to provide you with an unparalleled experience of fine living, wrapped in comfort. Our commitment and quality distinguish us from others.</p>
+                    <p class="text">Pioneering Solar in Bangladesh. Top-quality products, sustainable future, and fostering positive change</p>
                     <button class="btn btn-outline-primary" style="line-height: 2.428571;font-size: 17px; color: #F6F6F6; background-color: #02010100; border-style: solid; border-width: 3px 3px 3px 3px; border-color: #ffffff; box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); padding: 6px 29px 8px 49px;">Explore</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="col-md-4">
                     <div class="feature-boxs bg-light">
-                    better locations
+                        <span class="percent-value" style="font-size: 27px;color:black;"><b>10</b></span>
+                        <h4>Years Experience</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-boxs bg-light">
-                        comprehensive team
+                        <span class="percent-value" style="font-size: 27px;color:black;"><b>140+</b></span>
+                        <h4>Distributors</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-boxs bg-light">
-                        quality materials
+                        <span class="percent-value" style="font-size: 27px;color:black;"><b>900+</b></span>
+                        <h4>Retail Outlets</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-boxs bg-light">
-                        safety first
+                        <span class="percent-value" style="font-size: 27px;color:black;"><b>250+</b></span>
+                        <h4 style="white-space: nowrap;text-overflow: ellipsis;">On-grid Roof <br> Top Projects</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-boxs bg-light">
-                        timely handover
+                        <span class="percent-value" style="font-size: 27px;color:black;"><b>500+</b></span>
+                        <h4 style="white-space: nowrap;text-overflow: ellipsis;">Solar Irrigation Pumps</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-boxs bg-light">
-                        customer centric
+                        <span class="percent-value" style="font-size: 27px;color:black;"><b>2500+</b></span>
+                        <h4 style="white-space: nowrap;text-overflow: ellipsis;">Solar Street Light</h4>
                     </div>
                 </div>
             </div>
