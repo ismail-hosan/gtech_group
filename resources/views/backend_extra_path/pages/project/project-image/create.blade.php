@@ -126,7 +126,23 @@ Client - {{ $title }}
 </div>
 
 
-
+<script type="text/javascript" src="{{asset('public/editor/ckeditor.js')}}"></script>
+<!--<script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>-->
+<script>
+    var allEditors = document.querySelectorAll('.summernote');
+    for (var i = 0; i < allEditors.length; ++i) {
+        ClassicEditor.create(
+            allEditors[i],{
+                fontSize: {
+                    options: [
+                       12,13,14,16,18,20,22,24,26,28,30,32,34,36
+                    ],
+                    supportAllValues: true
+                },
+            }
+        );
+    }
+</script>
 
 
 

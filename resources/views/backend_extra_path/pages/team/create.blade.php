@@ -129,7 +129,7 @@ Team - {{ $title }}
                             @enderror
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Image * <samp style="color: rgb(139, 0, 0);">(480x480
+                            <label>Image * <samp style="color: rgb(139, 0, 0);">(322x280
                                     px)</samp>:</label>
                             <input type="file" name="image" class="form-control " placeholder="Name"
                                 value="{{ old('image') }}">

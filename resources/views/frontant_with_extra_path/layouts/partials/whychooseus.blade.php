@@ -157,10 +157,19 @@
         fill: #fff;
     }
 
+   
+
     h4 {
         font-size: 13px;
         color: #8d1f88;
         font-weight: 800;
+    }
+
+    .percent-value {
+        font-weight: bold;
+        position: relative;
+        font-size: 40px;
+        color: black;
     }
 </style>
 
@@ -179,37 +188,50 @@
             <div class="col-md-6">
                 <div class="col-md-4">
                     <div class="feature-boxs bg-light">
-                        <span class="percent-value" style="font-size: 27px;color:black;"><b>10</b></span>
+                        <div class="animate-section">
+                            <span class="percent-value" data-percentage="10">0+</span>
+                        </div>
+
                         <h4>Years Experience</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-boxs bg-light">
-                        <span class="percent-value" style="font-size: 27px;color:black;"><b>140+</b></span>
+                        <div class="animate-section">
+                            <span class="percent-value" data-percentage="160">0+</span>
+                        </div>
                         <h4>Distributors</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-boxs bg-light">
-                        <span class="percent-value" style="font-size: 27px;color:black;"><b>900+</b></span>
+                        <div class="animate-section">
+                            <span class="percent-value" data-percentage="900">0+</span>
+                        </div>
                         <h4>Retail Outlets</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-boxs bg-light">
-                        <span class="percent-value" style="font-size: 27px;color:black;"><b>250+</b></span>
+                        <div class="animate-section">
+                            <span class="percent-value" data-percentage="160">250+</span>
+                        </div>
                         <h4 style="white-space: nowrap;text-overflow: ellipsis;">On-grid Roof <br> Top Projects</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-boxs bg-light">
-                        <span class="percent-value" style="font-size: 27px;color:black;"><b>500+</b></span>
+                        <div class="animate-section">
+                            <span class="percent-value" data-percentage="1500">0+</span>
+                        </div>
                         <h4 style="white-space: nowrap;text-overflow: ellipsis;">Solar Irrigation Pumps</h4>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-boxs bg-light">
-                        <span class="percent-value" style="font-size: 27px;color:black;"><b>2500+</b></span>
+                        <div class="animate-section">
+                            <span class="percent-value" data-percentage="2500">0+</span>
+                        </div>
                         <h4 style="white-space: nowrap;text-overflow: ellipsis;">Solar Street Light</h4>
                     </div>
                 </div>
@@ -219,6 +241,38 @@
 
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    $(document).ready(function() {
+        var hasAnimated = false;
+        $(window).scroll(function() {
+            var scrollTop = $(window).scrollTop();
+            var elementOffset = $('.animate-section').offset().top;
+            var distance = elementOffset - scrollTop;
+            var windowHeight = $(window).height();
+
+            // Check if the element is in view
+            if (distance < windowHeight && !hasAnimated) {
+                hasAnimated = true; // Ensure the animation runs only once
+                $('.percent-value').each(function() {
+                    var $this = $(this);
+                    $({
+                        Counter: 0
+                    }).animate({
+                        Counter: $this.data('percentage')
+                    }, {
+                        duration: 1000, // Duration for quicker increment
+                        easing: 'swing',
+                        step: function(now) {
+                            $this.text( Math.ceil(now)+ '+');
+                        }
+                    });
+                });
+            }
+        });
+    });
+</script>
 
 <!-- <div class="section clearfix client-bg" style="padding: 112px 0;">
     <div class="container">

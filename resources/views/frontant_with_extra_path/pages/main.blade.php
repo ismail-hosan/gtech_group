@@ -229,31 +229,50 @@
     }
 
     .hello {
-        background: rgb(82 82 82 / 38%);
-        position: absolute;
-        bottom: -100%;
-        /* Initially hide .hello below the project */
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        /* Use flexbox */
-        justify-content: center;
-        /* Center horizontally */
-        align-items: center;
-        /* Center vertically */
-        transition: bottom 0.8s ease;
-        /* Add transition to bottom property */
-    }
+		background: rgb(0 0 0 / 38%);
+		position: absolute;
+		bottom: -80%;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		transition: all .4s ease-in-out;
+		font-size: 14px;
+		overflow: hidden;
+		text-decoration: none;
+		/* overflow-y: scroll; */
+	}
 
-    .hello p {
-        color: white;
-    }
 
-    .project:hover .hello {
-        bottom: 0;
-        /* Show .hello by moving it to the top */
-    }
+	.hello h3 {
+		padding-top: 7px;
+		font-size: 19px;
+		font-weight: 600;
+		color: #fff;
+		margin-bottom: 5px;
+		margin-top: 0px;
+	}
+
+	.success {
+		color: #416df8;
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+	.success:hover {
+		color: #ff0000;
+		/* Change this to the color you want on hover */
+	}
+
+	.project:hover .hello {
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		padding-top: 100px;
+		text-decoration: none;
+		/* display: flex; */
+		justify-content: center;
+	}
 </style>
 
 <!-- ================ -->
@@ -324,9 +343,13 @@
         @foreach($results as $result)
         <div class="project">
             <img src="{{ asset('public/'.$result->image) }}" alt="Project 1">
-            <div class="hello">
-                <p>{{$result->desc}}</p>
-            </div>
+            <a href="" class="hello" style="color:#ffffff">
+				<h3>{{$result->title??''}}</h3>
+
+				<p><i class="fa fa-map-marker" aria-hidden="true" style="color:red;font-size: 21px;"></i> {{$result->location ??''}},Dhaka</p>
+				<p>Ditails <i class="fa fa-angle-right" aria-hidden="true"></i></p>
+
+			</a>
         </div>
         @endforeach
     </div>
