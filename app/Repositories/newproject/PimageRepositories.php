@@ -141,6 +141,7 @@ class PimageRepositories
             $projectimg->type = $request->type;
             $projectimg->title = $request->title;
             $projectimg->order_by = $request->orderby;
+            $projectimg->service_id = $request->service_id;
             $projectimg->desc = $request->description;
             if ($request->hasFile('image')) {
                 $logoname = time() . '_' . $request->image->getClientOriginalName();
@@ -170,6 +171,7 @@ class PimageRepositories
             $projectimg->type = $request->type;
             $projectimg->title = $request->title;
             $projectimg->order_by = $request->orderby;
+            $projectimg->service_id = $request->service_id;
             $projectimg->desc = $request->description;
 
             if ($request->image) {

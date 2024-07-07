@@ -55,7 +55,7 @@ Client - {{ $title }}
                     @csrf
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustom01">Logo *:</label>
+                            <label for="validationCustom01">Logo*(700px*650px):</label>
                             <input type="file" class="form-control" name="logo">
                             @error('logo')
                             <span class=" error text-red text-bold">{{ $message }}</span>

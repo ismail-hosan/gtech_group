@@ -16,6 +16,7 @@ class CreateProjectimagesTable extends Migration
         Schema::create('projectimages', function (Blueprint $table) {
             $table->id();
             $table->integer('project_id');
+            $table->integer('service_id')->nullable();
             $table->string('type');
             $table->string('title');
             $table->longText('desc');

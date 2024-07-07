@@ -51,6 +51,12 @@ class FrontendController extends Controller
         return view('frontant_with_extra_path.pages.aboutus.ourclient', get_defined_vars());
     }
 
+    public function directorMesssge()
+    {
+        $meta = Company::orderBy('id', 'DESC')->pluck('client_meta')->first();
+        return view('frontant_with_extra_path.pages.aboutus.directorMesssge', get_defined_vars());
+    }
+
 
     public function aboutus()
     {

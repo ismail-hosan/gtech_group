@@ -61,8 +61,8 @@
                                                     <a href="{{Route('menu.aboutus')}}">Company Overview</a>
                                                 </li>
                                                 <li
-                                                    class="{{ Request::routeIs('menu.aboutus.ourclient') ? 'active' : '' }}">
-                                                    <a href="{{Route('menu.aboutus.ourclient')}}">Director Message</a>
+                                                    class="{{ Request::routeIs('menu.aboutus.directorMesssge') ? 'active' : '' }}">
+                                                    <a href="{{Route('menu.aboutus.directorMesssge')}}">Director Message</a>
                                                 </li>
                                                 <li class="{{ Request::routeIs('menu.aboutus.ourteam') ? 'active' : '' }}">
                                                     <a href="{{Route('menu.aboutus.ourteam')}}">Management Team</a>
@@ -167,9 +167,14 @@
                                             </ul>
 
                                         </li>
+                                        <li class="{{ Request::routeIs('menu.aboutus.ourclient') ? 'active' : '' }}">
+                                            <a href="{{route('menu.aboutus.ourclient')}}">Client</a>
+                                        </li>
                                         <li class="{{ Request::routeIs('careers') ? 'active' : '' }}">
                                             <a href="{{route('careers')}}">Careers</a>
                                         </li>
+
+                                        
                                          
                                         <li class="{{ Request::routeIs('contact.us') ? 'active' : '' }}">
                                             <a href="{{route('contact.us')}}">Contact</a>

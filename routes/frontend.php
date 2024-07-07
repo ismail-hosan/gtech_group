@@ -14,6 +14,7 @@ Route::namespace('Frontant')->group(function () {
 
     // our client
     Route::get('/about-us/ourclient', 'FrontendController@ourclient')->name('menu.aboutus.ourclient');
+    Route::get('/about-us/directorMesssge', 'FrontendController@directorMesssge')->name('menu.aboutus.directorMesssge');
     // About Us
     Route::get('/about-us', 'FrontendController@aboutus')->name('menu.aboutus');
 

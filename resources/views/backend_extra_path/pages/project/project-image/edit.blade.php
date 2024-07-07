@@ -77,6 +77,21 @@ Client - {{ $title }}
                             <span class=" error text-red text-bold">{{ $message }}</span>
                             @enderror
                         </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="service_id">Service</label>
+                            <select name="service_id" id="service_id" class="form-control">
+                                <option value="">Select Service</option>
+                                @foreach($sevices as $service)
+                                <option value="{{$service->id}}">{{$service->title?? 'N/A'}}</option>
+                                @endforeach
+                            </select>
+                            
+                            @error('service_id')
+                            <span class=" error text-red text-bold">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="col-md-4 mb-3">
                             <label for="orderby">orderBy :</label>
                             <input type="text" name="orderby" class="form-control" id="orderby" placeholder="orderBy" value="{{ $projectimg->order_by ?? '' }}">

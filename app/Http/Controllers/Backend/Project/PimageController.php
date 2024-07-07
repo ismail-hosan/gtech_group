@@ -9,6 +9,7 @@ use App\Transformers\GeneralTransformer;
 use Dotenv\Exception\ValidationException;
 use App\Models\Projectimage;
 use App\Models\project;
+use App\Models\Service;
 
 class PimageController extends Controller
 {
@@ -44,6 +45,7 @@ class PimageController extends Controller
     {
         $title = "Add New Project Image";
         $projects = Project::where('status', 'Active')->get();
+        $services = Service::where('status', 'Active')->get();
         return view('backend_extra_path.pages.project.project-image.create', get_defined_vars());
     }
 
@@ -100,6 +102,7 @@ class PimageController extends Controller
         $title = "Edit Project Image";
         $projectimg = Projectimage::find($id);
         $projects = Project::where('status', 'Active')->get();
+        $sevices = Service::where('status', 'Active')->get();
         return view('backend_extra_path.pages.project.project-image.edit', get_defined_vars());
     }
 
