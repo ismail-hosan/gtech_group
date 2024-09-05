@@ -267,6 +267,43 @@ class NavigationSeeder extends Seeder
 
                 )
             ),
+            (object) array(
+                'label' => 'Gallery',
+                'route' => null,
+                'icon' => 'fa fa-users',
+                'parent_id' => 0,
+                'submenu' => (object) array(
+                    (object) array(
+                        'label' => 'Photos',
+                        'route' => null,
+                        'icon' => 'fa fa-home',
+                        'parent_id' => null,
+                        'childMenu' => (object) array(
+                            (object) array('label' => 'All Photos', 'route' => 'photos.index', 'icon' => 'fa fa-dashboard', 'navigate_status' => 1),
+                            (object) array('label' => 'Add New Photos', 'route' => 'photos.create', 'icon' => 'fa fa-dashboard', 'navigate_status' => null),
+                            (object) array('label' => 'Edit Photos', 'route' => 'photos.edit', 'icon' => 'fa fa-dashboard', 'navigate_status' => null),
+                            (object) array('label' => 'Show Photos', 'route' => 'photos.show', 'icon' => 'fa fa-dashboard', 'navigate_status' => null),
+                            (object) array('label' => 'Destroy Photos', 'route' => 'photos.destroy', 'icon' => 'fa fa-dashboard', 'navigate_status' => null),
+                        )
+                    ),
+
+                    
+                    (object) array(
+                        'label' => 'Videos',
+                        'route' => null,
+                        'icon' => 'fa fa-home',
+                        'parent_id' => null,
+                        'childMenu' => (object) array(
+                            (object) array('label' => 'All Videos', 'route' => 'videos.index', 'icon' => 'fa fa-dashboard', 'navigate_status' => 1),
+                            (object) array('label' => 'Add New Videos', 'route' => 'videos.create', 'icon' => 'fa fa-dashboard', 'navigate_status' => null),
+                            (object) array('label' => 'Edit Videos', 'route' => 'videos.edit', 'icon' => 'fa fa-dashboard', 'navigate_status' => null),
+                            (object) array('label' => 'Show Videos', 'route' => 'videos.show', 'icon' => 'fa fa-dashboard', 'navigate_status' => null),
+                            (object) array('label' => 'Destroy Videos', 'route' => 'videos.destroy', 'icon' => 'fa fa-dashboard', 'navigate_status' => null),
+                        )
+                    ),
+
+                )
+            ),
 
             (object) array(
                 'label' => 'Team',

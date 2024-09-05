@@ -15,7 +15,7 @@
             "orderable": true
         },
         {
-            "data": "project_Name",
+            "data": "project_id",
             "orderable": true
         },
         {

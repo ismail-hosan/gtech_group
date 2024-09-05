@@ -61,7 +61,8 @@ Coustomer - {{ $title }}
                         <thead>
                             <tr>
                                 <th>SL</th>
-                                <th>Logo</th>
+                                <th>Name</th>
+                                <th>Logo</th> 
                                 <th>Order No</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -73,7 +74,8 @@ Coustomer - {{ $title }}
                         <tfoot>
                             <tr>
                                 <th>SL</th>
-                                <th>Logo</th>
+                                <th>Name</th>
+                                <th>Logo</th> 
                                 <th>Order No</th>
                                 <th>Status</th>
                                 <th>Action</th>

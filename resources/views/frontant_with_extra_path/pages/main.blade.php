@@ -180,183 +180,82 @@
 
 
 <style>
-    #projects {
+    #portfolio {
+        padding: 40px;
+        margin: 0 auto;
+    }
+
+    .gallery-title {
+        font-size: 36px;
+        color: #db584e;
         text-align: center;
-        margin: 20px;
+        font-weight: 700;
+        padding: 40px 20px 60px;
     }
 
-    .tabs {
-        margin-bottom: 20px;
-    }
-
-    .tab-link {
-        background-color: #f1f1f1;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        display: inline-block;
-        margin: 0 5px;
-        font-size: 15px;
-        font-weight: bold;
+    .filter-button {
+        font-size: 18px;
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 30px;
+        background-color: #159f59;
         font-family: 'Sintony', sans-serif;
+
     }
 
-    .tab-link.actives {
-        background-color: #4CAF50;
+    .filter-button:hover {
+        font-size: 18px;
+        border: 1px solid #3ee311;
+        border-radius: 5px;
+        text-align: center;
+        color: #ffffff;
+        background-color: #3ee311;
+
+    }
+
+
+    .filter-button:active {
+        background-color: black;
         color: white;
     }
 
-    .tab-content {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
+    .port-image {
+        width: 100%;
     }
 
-    .project {
-        margin: 10px;
-        border: 1px solid #ddd;
-        width: 286px;
-        height: 282px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        position: relative;
-        overflow: hidden;
-        /* Hide the overflow of .hello */
+    .gallery_product {
+        margin-bottom: 30px;
     }
-
-    .project img {
-        height: 335px;
-        width: 300px;
+    .btn
+    {
+        padding: 6px 0px;
     }
-
-    .hello {
-		background: rgb(0 0 0 / 38%);
-		position: absolute;
-		bottom: -80%;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		align-items: center;
-		transition: all .4s ease-in-out;
-		font-size: 14px;
-		overflow: hidden;
-		text-decoration: none;
-		/* overflow-y: scroll; */
-	}
-
-
-	.hello h3 {
-		padding-top: 7px;
-		font-size: 19px;
-		font-weight: 600;
-		color: #fff;
-		margin-bottom: 5px;
-		margin-top: 0px;
-	}
-
-	.success {
-		color: #416df8;
-		text-decoration: none;
-		font-weight: 600;
-	}
-
-	.success:hover {
-		color: #ff0000;
-		/* Change this to the color you want on hover */
-	}
-
-	.project:hover .hello {
-		bottom: 0;
-		width: 100%;
-		height: 100%;
-		padding-top: 100px;
-		text-decoration: none;
-		/* display: flex; */
-		justify-content: center;
-	}
 </style>
 
-<!-- ================ -->
-@if(!$products->isEmpty())
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <!-- <h2 class="text-center"><span class="bottom-line" style="background: #003166;color:#fff;border-radius:39px 0px;padding:16px 60px;">Our Products</span> </h2> -->
-            <h2 class="text-center">
-                <span class="title1">Our</span>
-                <span class="title2">Products</span>
-            </h2>
-            {{-- {{ \Illuminate\Support\str::limit(strip_tags($value->title), 20) }} --}}
-            {{-- <div class="separator-2"></div> --}}
-            <div class="row">
-                @foreach($products as $value)
-                @if(!$value->url)
-                <div class="col-md-4">
-                    <div class="product_service">
-                        <div class="product_service_div">
-                            <h3 style="min-height: 54px;">
-                                {!! $value->title !!}
-                            </h3>
-
-                            <p>{!! \Illuminate\Support\str::limit(strip_tags($value->description), 100) !!}</p>
-                        </div>
-                        <div class="bottom-btn">
-                            <a href="{{route('pages.product',['slug'=>$value->slug])}}" class="btn-white  btn">Read More</a>
-                        </div>
-
-                    </div>
-                </div>
-                @endif
-                @endforeach
-            </div>
-
-        </div>
-    </div>
-</div>
-@endif
 
 @if(!$projects->isEmpty())
-<section id="projects">
+<section id="portfolio">
+
     <div class="container">
-
-        <!-- <h2><span style="background: #003166;color:#fff;border-radius:39px 0px;padding:16px 60px;">Our Projects</span> -->
-        <h2 class="text-center">
-            <span class="title1">Our</span>
-            <span class="title2">Projects</span>
-        </h2>
-        <!-- <span style="background: #ef622b;border-radius:10px 0px;padding:0px 5px;color:#fff;">Choose Us ?</span></h2> -->
-        </h2>
-    </div><br>
-    <div class="tabs">
-        @foreach($projects as $key=>$project)
-        <button class="tab-link @if($key == 0) actives @endif" onclick="openTab(event, '{{$project->id}}')">{{$project->name}}</button>
-        <!-- <button class="tab-link" onclick="openTab(event, 'Upcoming')">Upcoming</button>
-        <button class="tab-link" onclick="openTab(event, 'Completed')">Completed</button> -->
-        @endforeach
-    </div>
-    @foreach($projects as $key=>$project1)
-    <div id="{{$project1->id}}" class="tab-content" @if($key !=0) style="display:none" @endif>
-        @php
-        $results = App\Helpers\Helper::getProject($project1->id);
-        @endphp
-
-        @foreach($results as $result)
-        <div class="project">
-            <img src="{{ asset('public/'.$result->image) }}" alt="Project 1">
-            <a href="" class="hello" style="color:#ffffff">
-				<h3>{{$result->title??''}}</h3>
-
-				<p><i class="fa fa-map-marker" aria-hidden="true" style="color:red;font-size: 21px;"></i> {{$result->location ??''}},Dhaka</p>
-				<p>Ditails <i class="fa fa-angle-right" aria-hidden="true"></i></p>
-
-			</a>
+        <div class="text-center">
+            <button class="btn filter-button" data-filter="all">All</button>
+            <button class="btn filter-button" data-filter="complited">complited</button>
+            <button class="btn filter-button" data-filter="ongoing">ongoing</button>
         </div>
-        @endforeach
+        <div class="row">
+            @if($images)
+            @foreach($images as $image)
+            <a href="#" class="gallery_product col-md-3 filter center {{$image->project_id}}">
+                <img src="{{ asset('public/'.$image->image) }}" style="height:200px;border-radius:5px;">
+                <p class="text-center" style="font-weight: bold;color: black;margin: 0 px;">{{$image->title}}</p>
+            </a>
+            @endforeach
+            @endif
+        </div>
     </div>
-    @endforeach
-    <!-- More projects -->
-    </div>
-    <!-- More tab contents -->
 </section>
 @endif
 
@@ -380,16 +279,14 @@
                 <!-- <span style="background: #ef622b;border-radius:10px 0px;padding:0px 5px;color:#fff;">Choose Us ?</span></h2> -->
                 </h2><br>
                 {{-- <div class="separator-2"></div> --}}
-                <div class="owl-carousel carousel">
+                <div class="col-md-12">
+                    
                     @foreach($ourclient as $value)
-                    <div class="image-box object-non-visible" data-animation-effect="fadeInLeft" data-effect-delay="300">
-                        <div class="overlay-container">
-                            <img src="{{asset('public/'.$value->logo)}}" alt="{{ $value->alt ?? 'IT Way BD' }}">
-                        </div>
+                    <div class="col-md-2">
+                        <img src="{{asset('public/'.$value->logo)}}" alt="{{ $value->alt ?? 'IT Way BD' }}" style="height: 1--px;width: 68%;"> 
                     </div>
                     @endforeach
                 </div>
-
             </div>
         </div>
     </div>
@@ -659,23 +556,28 @@
         </div>
     </div>
 </div>
+
 <script>
-    function openTab(evt, tabName) {
-        var i, tabcontent, tablinks;
+    $(document).ready(function() {
 
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
+        $(".filter-button").click(function() {
+            var value = $(this).attr('data-filter');
+
+            if (value == "all") {
+                $('.filter').show('1000');
+            } else {
+                $(".filter").not('.' + value).hide('3000');
+                $('.filter').filter('.' + value).show('3000');
+
+            }
+        });
+
+        if ($(".filter-button").removeClass("active")) {
+            $(this).removeClass("active");
         }
+        $(this).addClass("active");
 
-        tablinks = document.getElementsByClassName("tab-link");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" actives", "");
-        }
-
-        document.getElementById(tabName).style.display = "flex";
-        evt.currentTarget.className += " actives";
-    }
+    });
 </script>
 
 <script src="script.js"></script>

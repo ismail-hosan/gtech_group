@@ -63,7 +63,9 @@ class OurClientService
     public function storeValidation($request)
     {
         return [
+            'type' => 'required',
             'logo' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'name' => 'required',
             'alt' => 'nullable|string',
 
         ];
@@ -77,6 +79,7 @@ class OurClientService
     {
         return [
             'logo' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
+            'name' => 'required',
             'alt' => 'nullable|string',
         ];
     }

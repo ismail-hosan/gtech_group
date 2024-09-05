@@ -28,7 +28,7 @@
                 <div class="row">
                     @foreach($services as $value)
                     {{-- @if($value->url) --}}
-                    <div class="col-md-3 col-sm-6">
+                    <a href="{{route('pages.product',['slug' => $value->slug])}}" class="col-md-3 col-sm-6" style="text-decoration: none;color:black">
                         <div class="service_style">
                             <div class="card" style="width: 25rem;">
                                 <img class="card-img-top" src="{{ asset('public/backend/service/'.$value->image) }}" alt="Card image cap" style="height: 20rem;">
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                     {{-- @endif --}}
                     @endforeach
                 </div>

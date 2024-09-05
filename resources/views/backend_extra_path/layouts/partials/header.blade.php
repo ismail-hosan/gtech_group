@@ -84,32 +84,28 @@
 
     <ul class="quick_access_btn">
         <li>
-            <a href="" class="btn btn-sm"> <i class="fas fa fa-shopping-bag "></i> </a>
+            <a href="" class="btn btn-sm"> <i class="fas fa fa-shopping-bag"></i></a>
         </li>
         <li>
-            <a href="" class="btn btn-sm"> <i class="fas fa fa-shopping-cart "></i> </a>
+            <a href="" class="btn btn-sm"> <i class="fas fa fa-shopping-cart"></i></a>
         </li>
         <li>
-            <a href="" class="btn btn-sm"> <i class="fa fa-plus-circle"></i> </a>
+            <a href="" class="btn btn-sm"> <i class="fa fa-plus-circle"></i></a>
         </li>
         <li>
-            <a href="" class="btn btn-sm"> <i class="fa fa-compress"></i> </a>
+            <a href="" class="btn btn-sm"> <i class="fa fa-compress"></i></a>
         </li>
         <li>
-            <a href="" class="btn btn-sm"><i class="fas fa-seedling"></i> </a>
+            <a href="" class="btn btn-sm"><i class="fas fa-seedling"></i></a>
         </li>
         <li>
-            <a href="" class="btn btn-sm"> <i class="fa fa-rocket"></i> </a>
-        </li>
-
-
-
-
-        <li>
-            <a href="" class="btn btn-sm"> <i class="fas fa fa-tree "></i> </a>
+            <a href="" class="btn btn-sm"><i class="fa fa-rocket"></i></a>
         </li>
         <li>
-            <a href="" class="btn btn-sm"> <i class="fas fa-swatchbook"></i> </a>
+            <a href="" class="btn btn-sm"><i class="fas fa fa-tree "></i></a>
+        </li>
+        <li>
+            <a href="" class="btn btn-sm"><i class="fas fa-swatchbook"></i></a>
         </li>
     </ul>
 

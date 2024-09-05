@@ -25,20 +25,8 @@
                 <div class="row">
 
                     @if($data->image && !in_array(strtolower($data->title), $ignore_image))
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <img style="width: 100%;height: 466px;" src="{{ asset('public/backend/service/'.$data->image) }}" alt="{{ $data->alt ?? 'IT Way BD' }}">
-                    </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-12" style="margin-bottom: 2px;">
-                                <img style="width: 100%;" src="{{ asset('public/backend/service/'.$data->image) }}" alt="{{ $data->alt ?? 'IT Way BD' }}">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12" style="margin-top: 2px;">
-                                <img style="width: 100%;" src="{{ asset('public/backend/service/'.$data->image) }}" alt="{{ $data->alt ?? 'IT Way BD' }}">
-                            </div>
-                        </div>
                     </div>
                     <div class="col-md-12">
                         {!! $data->details !!}

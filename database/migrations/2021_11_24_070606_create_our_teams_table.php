@@ -20,6 +20,7 @@ class CreateOurTeamsTable extends Migration
             $table->string('designation_id', 120)->nullable();
             $table->string('name', 120)->nullable();
             $table->string('image', 120)->nullable();
+            $table->longText('degination')->nullable();
             $table->enum('status', ['Active', 'Inactive'])->default('Active')->comment('default status set active , Inactive');
             $table->integer('updated_by')->nullable();
             $table->integer('created_by')->nullable();

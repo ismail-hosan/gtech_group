@@ -13,6 +13,7 @@ use App\Models\OurTeam;
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\Project;
+use App\Models\Projectimage;
 use App\Models\Slider;
 use App\Models\Testimonial;
 use Illuminate\Support\Facades\Artisan;
@@ -31,14 +32,15 @@ class FrontendController extends Controller
     {
         Artisan::call('optimize:clear');
         $expertise = Expertise::inRandomOrder()->get();
-        $ourclient = OurClient::orderBy('orderNo', 'asc')->where('status', 'Active')->limit(12)->get();
+        $ourclient = OurClient::orderBy('orderNo', 'asc')->where('status', 'Active')->where('type','client')->limit(12)->get();
         $companydetails = Company::orderBy('id', 'DESC')->first(['total_clients', 'project_done', 'running_project', 'meta', 'success_rate', 'alt']);
         $aboutus = AboutUs::orderBy('id', 'DESC')->first(['title', 'description', 'video', 'alt', 'image']);
         $testimunials = Testimonial::where('status', 'Active')->get(['customer_id', 'message', 'image', 'alt']);
         $services = Service::where('status', 'Active')->limit(9)->orderBy('order_by',"asc")->get();
         $products = Product::where('status', 'Active')->where('service_id', null)->limit(9)->where('id','!=',24)->get();
         $sliders = Slider::where('status', 'Active')->orderBy('order_by', 'asc')->limit(5)->get();
-        $projects = Project::where('status', 'Active')->limit(3)->get();
+        $images = Projectimage::where('status','Active')->get();
+        $projects = Project::where('status', 'Active')->orderBy('order_by', 'asc')->limit(3)->get();
         $meta = optional($companydetails)->meta;
         return view('frontant_with_extra_path.pages.main', get_defined_vars());
     }
@@ -46,9 +48,16 @@ class FrontendController extends Controller
 
     public function ourclient()
     {
-        $ourclient = OurClient::orderBy('orderNo', 'asc')->where('status', 'Active')->get();
+        $ourclient = OurClient::orderBy('orderNo', 'asc')->where('status', 'Active')->where('type','client')->get();
         $meta = Company::orderBy('id', 'DESC')->pluck('client_meta')->first();
         return view('frontant_with_extra_path.pages.aboutus.ourclient', get_defined_vars());
+    }
+
+    public function ourConcern()
+    {
+        $ourConcern = OurClient::orderBy('orderNo', 'asc')->where('status', 'Active')->where('type','concern')->get();
+        $meta = Company::orderBy('id', 'DESC')->pluck('client_meta')->first();
+        return view('frontant_with_extra_path.pages.concern', get_defined_vars());
     }
 
     public function directorMesssge()
@@ -72,7 +81,7 @@ class FrontendController extends Controller
     {
         $meta = Company::orderBy('id', 'DESC')->pluck('team_meta')->first();
         // $ourtimes = OurTeam::orderBy('id', 'DESC')->where('status', 'Active')->get(['department_id', 'designation_id', 'name', 'image']);
-        $ceo = OurTeam::where('designation_id', 'CEO')->first();
+        $ceo = OurTeam::where('designation_id', 'chairman')->first();
         // $manager =  OurTeam::whereIn('designation_id', ['Technical Manager', 'HR Manager'])->get();
         $teamMembers = OurTeam::whereNotIn('designation_id', ['CEO'])->orderBy('serial', 'asc')->get();
 

@@ -54,17 +54,51 @@ Client - {{ $title }}
                     enctype="multipart/form-data" novalidate>
                     @csrf
                     <div class="form-row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Logo*(700px*650px):</label>
                             <input type="file" class="form-control" name="logo">
                             @error('logo')
                             <span class=" error text-red text-bold">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
+                            <label for="title">Type :</label>
+                            <select name="type" id="type" class="form-control">
+                                <option value="">Select Type</option>
+                                <option value="client">Client</option>
+                                <option value="concern">Concern</option>
+                            </select>
+                            @error('type')
+                            <span class=" error text-red text-bold">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Order By *:</label>
                             <input type="number" name="orderby" class="form-control" value="{{ old('orderby') }}">
                             @error('name')
+                            <span class=" error text-red text-bold">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="alt">Name:</label>
+                            <input type="text" name="name" class="form-control" id="name"
+                                placeholder="Name........" value="{{ old('alt') }}">
+                            @error('name')
+                            <span class=" error text-red text-bold">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Image</label>
+                            <input type="file" class="form-control" name="image">
+                            @error('image')
+                            <span class=" error text-red text-bold">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label for="">Description * :</label>
+                            <textarea name="short_description" class="form-control summernote" name="description"
+                                rows="5">{{ old('description') }}</textarea>
+                            @error('description')
                             <span class=" error text-red text-bold">{{ $message }}</span>
                             @enderror
                         </div>
@@ -92,12 +126,24 @@ Client - {{ $title }}
 </div>
 
 
+@endsection
 
-
-
-
-
-
-
-
+@section('scripts')
+<script type="text/javascript" src="{{asset('public/editor/ckeditor.js')}}"></script>
+<!--<script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>-->
+<script>
+    var allEditors = document.querySelectorAll('.summernote');
+    for (var i = 0; i < allEditors.length; ++i) {
+        ClassicEditor.create(
+            allEditors[i],{
+                fontSize: {
+                    options: [
+                       12,13,14,16,18,20,22,24,26,28,30,32,34,36
+                    ],
+                    supportAllValues: true
+                },
+            }
+        );
+    }
+</script>
 @endsection

@@ -50,7 +50,7 @@
 
                     </div>
                     <div class="col-md-4">
-                        <img src="{{asset('public/frontant/images/director.png')}}" alt="">
+                        <img src="{{asset('public/frontant/images/director.jpg')}}" alt="">
                     </div>
                 </div>
                 <!-- portfolio items end -->

@@ -58,9 +58,9 @@ Client - {{ $title }}
                             <label for="title">Service :</label>
                             <select name="project_id" id="project_id" class="form-control">
                                 <option value="">Select Project</option>
-                                @foreach($projects as $project)
-                                <option value="{{$project->id}}">{{$project->name?? 'N/A'}}</option>
-                                @endforeach
+                                <option value="complited">complited</option>
+                                <option value="ongoing">ongoing</option>
+                               
                             </select>
                             @error('project_id')
                             <span class=" error text-red text-bold">{{ $message }}</span>

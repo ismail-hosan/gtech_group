@@ -15,6 +15,10 @@
             "orderable": true
         },
         {
+            "data": "name",
+            "orderable": true
+        },
+        {
             "data": "logo",
             "orderable": true
         },

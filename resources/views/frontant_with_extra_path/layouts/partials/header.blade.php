@@ -1,4 +1,3 @@
-
 <header class="header fixed clearfix">
     <div class="container">
         <div class="row">
@@ -12,8 +11,7 @@
                         $url = $company->logo ?? 'itwaybd-h.png';
                         $path = asset("public/backend/logo/$url");
                         @endphp
-                        <a href="{{'/'}}"><img class="max-width-200" src="{{$path}}"
-                                alt="{{$company->alt ?? 'N/A'}}"></a>
+                        <a href="{{'/'}}"><img class="max-width-200" src="{{$path}}" alt="{{$company->alt ?? 'N/A'}}"></a>
                     </div>
                     <!-- name-and-slogan -->
                 </div>
@@ -34,8 +32,7 @@
                             <div class="container-fluid">
                                 <!-- Toggle get grouped for better mobile display -->
                                 <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                        data-target="#navbar-collapse-1">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
                                         <span class="sr-only">Toggle navigation</span>
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
@@ -50,18 +47,14 @@
                                         <li class="{{ Request::routeIs('frontend.index') ? 'active' : '' }}">
                                             <a href="/">Home</a>
                                         </li>
-                                        <li
-                                            class="dropdown">
-                                            <a href="#" class=" dropdown-toggle"
-                                                data-toggle="dropdown" aria-expanded="false">About us</a>
+                                        <li class="dropdown">
+                                            <a href="#" class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="false">About us</a>
 
                                             <ul class=" dropdown-menu">
-                                                <li
-                                                    class="{{ Request::routeIs('menu.aboutus') ? 'active' : '' }}">
+                                                <li class="{{ Request::routeIs('menu.aboutus') ? 'active' : '' }}">
                                                     <a href="{{Route('menu.aboutus')}}">Company Overview</a>
                                                 </li>
-                                                <li
-                                                    class="{{ Request::routeIs('menu.aboutus.directorMesssge') ? 'active' : '' }}">
+                                                <li class="{{ Request::routeIs('menu.aboutus.directorMesssge') ? 'active' : '' }}">
                                                     <a href="{{Route('menu.aboutus.directorMesssge')}}">Director Message</a>
                                                 </li>
                                                 <li class="{{ Request::routeIs('menu.aboutus.ourteam') ? 'active' : '' }}">
@@ -69,28 +62,41 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li
-                                            class="{{ (isset($service_menu) && $service_menu->isNotEmpty()) ? 'dropdown' : ''}} {{ Request::routeIs(['pages.services','pages.services.*']) ? 'active' : '' }}">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                                                aria-expanded="false">Services</a>
-                                            
+
+                                        <!--Concern--->
+                                        <li class="{{ (isset($concernmenus) && $concernmenus->isNotEmpty()) ? 'dropdown' : ''}}">
+                                            <a href="{{Route('menu.ourConcern')}}" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Concern</a>
+                                            @if(isset($concernmenus))
+                                            <ul class="dropdown-menu">
+
+
+                                                @foreach($concernmenus as $concernmenu)
+                                                <li>
+                                                    <a href="{{ Route('ourConcern.show', $concernmenu->slug) }}" class="dropdown-toggle">{{ strip_tags($concernmenu->name) }}</a>
+                                                </li>
+                                                @endforeach
+                                            </ul>
+                                            @endif
+                                        </li>
+                                        <!--End Concern--->
+
+                                        <li class="{{ (isset($service_menu) && $service_menu->isNotEmpty()) ? 'dropdown' : ''}} {{ Request::routeIs(['pages.services','pages.services.*']) ? 'active' : '' }}">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Services</a>
+
                                             @if (isset($service_menu) && $service_menu->isNotEmpty())
                                             <ul class="dropdown-menu">
                                                 @foreach($service_menu as $key => $ser_cat)
                                                 <li class="{{count($ser_cat->products) > 0 ? 'dropdown':''}} ">
                                                     {{-- category link --}}
-                                                    <a href="{{ $ser_cat->url ? $ser_cat->url :route('pages.services',['slug'=>$ser_cat->slug]) }}"
-                                                        class="dropdown-toggle" data-toggle="{{count($ser_cat->products) > 0 ? 'dropdown':''}}"
-                                                        aria-expanded="false">{{$ser_cat->title}}</a>
+                                                    <a href="{{ $ser_cat->url ? $ser_cat->url :route('pages.services',['slug'=>$ser_cat->slug]) }}" class="dropdown-toggle" data-toggle="{{count($ser_cat->products) > 0 ? 'dropdown':''}}" aria-expanded="false">{{$ser_cat->title}}</a>
                                                     @if(count($ser_cat->products) > 0)
                                                     <ul class="dropdown-menu">
                                                         @foreach($ser_cat->products as $child_service)
-                                                       
+
                                                         <li>
-                                                            <a
-                                                                href="{{route('pages.product',['slug' => $child_service->slug])}}">{{ strip_tags($child_service->title) }}</a>
+                                                            <a href="{{route('pages.product',['slug' => $child_service->slug])}}">{{ strip_tags($child_service->title) }}</a>
                                                         </li>
-                                                      
+
                                                         @endforeach
                                                     </ul>
                                                     @endif
@@ -100,84 +106,82 @@
                                             @endif
                                         </li>
 
-                                        <li
-                                            class="{{ (isset($products_menu) && $products_menu->isNotEmpty()) ? 'dropdown' : ''}} {{ Request::routeIs(['pages.product','pages.product.*']) ? 'active' : '' }}">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                                                aria-expanded="false">Products</a>
+                                        <li class="{{ (isset($products_menu) && $products_menu->isNotEmpty()) ? 'dropdown' : ''}} {{ Request::routeIs(['pages.product','pages.product.*']) ? 'active' : '' }}">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Products</a>
                                             @if (isset($products_menu) && $products_menu->isNotEmpty())
                                             <ul class="dropdown-menu">
                                                 @foreach($products_menu as $item)
                                                 @continue($item->service_id)
                                                 @if($item->id == 24)
                                                 <li>
-                                                    <a href="{{ route('top_ten_products') }}"
-                                                        class="dropdown-toggle" style="display: none;">{{ strip_tags($item->title) }}</a>
+                                                    <a href="{{ route('top_ten_products') }}" class="dropdown-toggle" style="display: none;">{{ strip_tags($item->title) }}</a>
                                                 </li>
                                                 @elseif($item->id != 25)
                                                 <li>
-                                                    <a href="{{ route('pages.product',['slug'=>$item->slug]) }}"
-                                                        class="dropdown-toggle">{{ strip_tags($item->title) }}</a>
+                                                    <a href="{{ route('pages.product',['slug'=>$item->slug]) }}" class="dropdown-toggle">{{ strip_tags($item->title) }}</a>
                                                 </li>
                                                 @endif
-                                        
-                                                
+
+
                                                 @endforeach
                                             </ul>
                                             @endif
                                         </li>
-                                        
-                                        <li
-                                            class="{{ (isset($project_menu) && $project_menu->isNotEmpty()) ? 'dropdown' : ''}}">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                                                aria-expanded="false">Projects</a>
-                        
-                        
+
+                                        <li class="{{ (isset($project_menu) && $project_menu->isNotEmpty()) ? 'dropdown' : ''}}">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Projects</a>
                                             <ul class="dropdown-menu">
-                        
-                                                @foreach($project_menu as $items)  
+
+                                                @foreach($project_menu as $items)
                                                 <li>
-                                                    <a href="{{ route('project.ditails',['id' => $items->id]) }}"
-                                                        class="dropdown-toggle">{{ strip_tags($items->name) }}</a>
+                                                    <a href="{{ route('project.ditails',['id' => $items->id]) }}" class="dropdown-toggle">{{ strip_tags($items->name) }}</a>
                                                 </li>
                                                 @endforeach
                                             </ul>
-                                           
+
                                         </li>
-                                        
-                                       
+
+
                                         <!-- <li class="{{ Request::routeIs('blog') ? 'active' : '' }}">
                                             <a href="{{route('menu.blog')}}">Blog</a>
                                         </li> -->
 
                                         <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                                                aria-expanded="false">Gallery</a>                                       
-                                            
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Gallery</a>
+
                                             <ul class="dropdown-menu">
                                                 <li>
-                                                    <a href="#"
-                                                        class="dropdown-toggle">Photos</a>
+                                                    <a href="#" class="dropdown-toggle">Photos</a>
                                                 </li>
 
                                                 <li>
-                                                    <a href="#"
-                                                        class="dropdown-toggle">Videos</a>
-                                                </li>    
- 
+                                                    <a href="#" class="dropdown-toggle">Videos</a>
+                                                </li>
+
                                             </ul>
 
                                         </li>
                                         <li class="{{ Request::routeIs('menu.aboutus.ourclient') ? 'active' : '' }}">
                                             <a href="{{route('menu.aboutus.ourclient')}}">Client</a>
                                         </li>
-                                        <li class="{{ Request::routeIs('careers') ? 'active' : '' }}">
-                                            <a href="{{route('careers')}}">Careers</a>
-                                        </li>
 
-                                        
-                                         
                                         <li class="{{ Request::routeIs('contact.us') ? 'active' : '' }}">
                                             <a href="{{route('contact.us')}}">Contact</a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">More</a>
+
+                                            <ul class="dropdown-menu">
+                                                <li class="{{ Request::routeIs('careers') ? 'active' : '' }}">
+                                                    <a href="{{route('careers')}}">Careers</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="#" class="dropdown-toggle">CSR</a>
+                                                </li>
+
+                                            </ul>
+
                                         </li>
                                     </ul>
                                 </div>

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Company;
+use App\Models\OurClient;
 use App\Models\Product;
 use App\Models\Project;
 use App\Models\Service;
@@ -48,6 +49,10 @@ class AppServiceProvider extends ServiceProvider
             $projectmenu = Project::where('status','Active')->get([
                 'name','id'
             ]);
+
+            $concernmenu = OurClient::where('status','Active')->where('type','concern')->get([
+                'name','slug'
+            ]);
             // dd($projectmenu);
             $whychooseus = WhyChoose::orderBy('serial', 'asc')->get(['title', 'details', 'fa_icon']);
 
@@ -55,7 +60,7 @@ class AppServiceProvider extends ServiceProvider
 
             
 
-            view()->share(['service_menu' => $service_menu,'project_menu'=>$projectmenu , 'products_menu' => $products, 'company' => $company, 'whychooseus' => $whychooseus]);
+            view()->share(['service_menu' => $service_menu,'concernmenus'=> $concernmenu,'project_menu'=>$projectmenu , 'products_menu' => $products, 'company' => $company, 'whychooseus' => $whychooseus]);
         } catch (\Throwable $th) {
             dd($th->getMessage() . ' File: ' . $th->getFile() . ' Line: ' . $th->getLine());
         }

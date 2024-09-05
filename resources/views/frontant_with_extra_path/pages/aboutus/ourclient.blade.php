@@ -13,6 +13,44 @@
 
 
 @section('main-content')
+
+<style>
+    .overlay-container img {
+        width: 100%;
+        opacity: 1;
+        animation: bounce 2s infinite alternate, zoom 2s infinite alternate;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+
+    @keyframes bounce {
+        0% {
+            transform: translateY(0);
+        }
+
+        100% {
+            transform: translateY(-20px);
+        }
+    }
+
+
+    @keyframes zoom {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.1);
+        }
+    }
+
+
+    .overlay-container:hover img {
+        opacity: 0.7;
+        animation: bounce 2s infinite alternate, zoom 2s infinite alternate reverse;
+    }
+</style>
+
 <section class="main-container">
     <div class="container">
         <div class="row">
@@ -30,7 +68,7 @@
                     <div class="col-md-3 col-sm-12 isotope-item">
                         <div class="image-box">
                             <div class="overlay-container">
-                                <img src="{{asset('public/'.$value->logo)}}" alt="{{ $value->alt ?? 'IT Way BD' }}" style="height:202px;width: 100%;">
+                                <img src="{{asset('public/'.$value->logo)}}" alt="{{ $value->alt ?? 'IT Way BD' }}" class="fade-in-out" style="height:202px;width: 100%;">
                             </div>
                         </div>
                     </div>

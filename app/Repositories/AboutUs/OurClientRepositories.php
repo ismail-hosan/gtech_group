@@ -4,6 +4,7 @@ namespace App\Repositories\AboutUs;
 
 use App\Helpers\Helper;
 use App\Models\OurClient;
+use Illuminate\Support\Str;
 
 
 class OurClientRepositories
@@ -76,9 +77,9 @@ class OurClientRepositories
         if ($OurClient) {
             foreach ($OurClient as $key => $eOurClient) {
                 $nestedData['id'] = $key + 1;
-                $nestedData['logo'] = "<img src='" . asset('public/'.$eOurClient->logo) . "' width='70%' />";
+                $nestedData['name'] = $eOurClient->name;
+                $nestedData['logo'] = "<img src='" . asset('public/'.$eOurClient->logo) . "' width='70%' />"; 
                 $nestedData['orderNo'] = $eOurClient->orderNo;
-
                 if ($eOurClient->status == 'Active') :
                     $status = '<input class="status_row" status_route="' . route('aboutUs.ourClient.status', [$eOurClient->id, 'Inactive']) . '"   id="toggle-demo" type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">';
                 else :
@@ -102,8 +103,10 @@ class OurClientRepositories
                     $nestedData['action'] = '';
                 endif;
                 $data[] = $nestedData;
+                
             }
         }
+        // dd($totalData);
         $json_data = array(
             "draw" => intval($request->input('draw')),
             "recordsTotal" => intval($totalData),
@@ -127,10 +130,16 @@ class OurClientRepositories
     public function store($request)
     {
         $logoname = time() . '_' . $request->logo->getClientOriginalName();
+        $logoname = time() . '_' . $request->image->getClientOriginalName();
         $request->logo->move(public_path() . '/storage/OurClient/', $logoname);
-
+        $request->image->move(public_path() . '/storage/OurClient/image', $logoname);
         $OurClient = new OurClient();
+        $OurClient->type = $request->type;
+        $OurClient->name = $request->name;
+        $OurClient->slug = Str::slug($request->name, '-');
+        $OurClient->description = $request->description;
         $OurClient->logo = '/storage/OurClient/' . $logoname;
+        $OurClient->image = '/storage/OurClient/image' . $logoname;
         $OurClient->orderNo = $request->orderby;
         $OurClient->alt = $request->alt;
         $OurClient->save();
@@ -140,6 +149,7 @@ class OurClientRepositories
 
     public function update($request, $id)
     {
+        // dd($request->all());
         $OurClient = OurClient::find($id);
         if ($request->logo) {
             $logoname = time() . '_' . $request->logo->getClientOriginalName();
@@ -148,11 +158,23 @@ class OurClientRepositories
             if (file_exists($path)) {
                 @unlink($path);
             }
-        }
-
-        if ($request->logo) {
             $OurClient->logo = '/storage/OurClient/' . $logoname;
         }
+        if ($request->image) {
+            $imagename = time() . '_' . $request->image->getClientOriginalName();
+            $request->image->move(public_path() . '/storage/OurClient/image/', $imagename);
+            $path = public_path($OurClient->image);
+            if (file_exists($path)) {
+                @unlink($path);
+            }
+            $OurClient->image = '/storage/OurClient/image/' . $imagename;
+        }
+
+        
+        $OurClient->type = $request->type;
+        $OurClient->name = $request->name;
+        $OurClient->slug = Str::slug($request->name, '-');
+        $OurClient->description = $request->description;
         $OurClient->orderNo = $request->orderby;
         $OurClient->alt = $request->alt;
         $OurClient->save();

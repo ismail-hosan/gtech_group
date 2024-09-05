@@ -13,13 +13,19 @@ Route::namespace('Frontant')->group(function () {
     Route::get('/', 'FrontendController@index')->name('frontend.index');
 
     // our client
-    Route::get('/about-us/ourclient', 'FrontendController@ourclient')->name('menu.aboutus.ourclient');
+    Route::get('/ourclient', 'FrontendController@ourclient')->name('menu.aboutus.ourclient');
+    Route::get('/ourConcern', 'FrontendController@ourConcern')->name('menu.ourConcern');
+    Route::get('/ourConcern/{slug}','PagesController@concernshow')->name('ourConcern.show');
     Route::get('/about-us/directorMesssge', 'FrontendController@directorMesssge')->name('menu.aboutus.directorMesssge');
     // About Us
     Route::get('/about-us', 'FrontendController@aboutus')->name('menu.aboutus');
 
     // Our team
     Route::get('/about-us/ourteam', 'FrontendController@ourteam')->name('menu.aboutus.ourteam');
+
+    Route::get('/gallery/photos', 'FrontendController@photos')->name('view.photos');
+    Route::get('/gallery/videos', 'FrontendController@videos')->name('view.videos');
+
     // testimunials
     Route::get('/about-us/testimunials', 'FrontendController@testimunials')->name('menu.aboutus.testimunials');
     // overview

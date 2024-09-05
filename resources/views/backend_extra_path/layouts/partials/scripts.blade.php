@@ -78,6 +78,7 @@
 <script src="{{ asset('public/backend/assets/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
 <script src="{{ asset('public/backend/assets/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
 
 
 <script src="{{ asset('public/backend/assets/dist/js/pages/dashboard3.js') }}"></script>
@@ -215,11 +216,11 @@
             theme: 'bootstrap4'
         })
 
-        //Datemask dd/mm/yyyy
+ 
         $('#datemask').inputmask('dd/mm/yyyy', {
             'placeholder': 'dd/mm/yyyy'
         })
-        //Datemask2 mm/dd/yyyy
+
         $('#datemask2').inputmask('mm/dd/yyyy', {
             'placeholder': 'mm/dd/yyyy'
         })

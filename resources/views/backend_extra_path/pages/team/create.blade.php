@@ -137,6 +137,16 @@ Team - {{ $title }}
                             <span class=" error text-red text-bold">{{ $message }}</span>
                             @enderror
                         </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label for="description">Short Desgination :</label>
+
+                            <textarea class="form-control summernote" name="s_degination" id="s_degination" rows="5" placeholder="Write about your company...">{{ $editInfo->description ?? '' }}</textarea>
+                            @error('s_degination')
+                            <span class=" error text-red text-bold">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="col-md-12 mb-3">
                             <label for="alt">Image Alternative Text :</label>
                             <input type="text" name="alt" class="form-control" id="alt"
@@ -158,6 +168,24 @@ Team - {{ $title }}
     </div>
     <!-- /.col-->
 </div>
+
+<script type="text/javascript" src="{{asset('public/editor/ckeditor.js')}}"></script>
+<!--<script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>-->
+<script>
+    var allEditors = document.querySelectorAll('.summernote');
+    for (var i = 0; i < allEditors.length; ++i) {
+        ClassicEditor.create(
+            allEditors[i],{
+                fontSize: {
+                    options: [
+                       12,13,14,16,18,20,22,24,26,28,30,32,34,36
+                    ],
+                    supportAllValues: true
+                },
+            }
+        );
+    }
+</script>
 
 
 

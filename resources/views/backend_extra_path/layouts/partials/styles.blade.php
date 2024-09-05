@@ -18,12 +18,12 @@
     href="{{ asset('public/backend/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
 <!-- Daterange picker -->
 <link rel="stylesheet" href="{{ asset('public/backend/assets/plugins/daterangepicker/daterangepicker.css') }}">
-{{--
+
 <!-- summernote -->
 <link rel="stylesheet" href="{{ asset('public/backend/assets/plugins/summernote/summernote-bs4.min.css') }}">
 <link rel="stylesheet"
     href="{{ asset('public/backend/assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
---}}
+
 
 <!-- Bootstrap Color Picker -->
 <link rel="stylesheet"
@@ -53,4 +53,4 @@
 
 <link rel="stylesheet" href="{{ asset('public/backend/assets/dist/css/skins/_all-skins.min.css') }}">
 <!-- style css section -->
-<!-- <link rel="stylesheet" href="{{ asset('public/backend/assets/dist/css/style.css') }}"> -->
+<link rel="stylesheet" href="{{ asset('public/backend/assets/dist/css/style.css') }}">

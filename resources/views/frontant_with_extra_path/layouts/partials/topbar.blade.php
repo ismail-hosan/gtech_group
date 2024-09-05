@@ -88,7 +88,9 @@
                 <!-- ================ -->
                 <div id="header-top-first" class="clearfix">
                    <ul class="list-inline pull-right">
-                       <li style="white-space:nowrap;"><i class="fa fa-phone pr-5 pl-10"></i> {{$company->sale_phone ?? ''}}</li>
+                    @if($company->sale_phone)
+                        <li style="white-space:nowrap;"><i class="fa fa-phone pr-5 pl-10"></i> {{$company->sale_phone ?? ''}}</li>
+                    @endif
                        <li style="white-space:nowrap;"><i class="fa fa-phone pr-5 pl-10"></i> {{$company->phone ?? ''}}</li>
                        <li class="hidden-sm hidden-xs"><i class="fa fa-map-marker pr-5 pl-10"></i>{{$company->address ?? ''}}</li>
                         

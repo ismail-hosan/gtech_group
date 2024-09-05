@@ -278,6 +278,31 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function () {
         Route::get('/project-image-delete/{id}', 'PimageController@destroy')->name('project.image.destroy');
 
     });
+
+    Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'Gallery'], function () {
+        Route::get('/photos-list', 'PhotoController@index')->name('photos.index');
+        Route::post('/photos-store', 'PhotoController@store')->name('photos.store');
+        Route::get('/dataProcessingPhotos','PhotoController@dataProcessingPhotos')->name('photos.dataprocessingPhotos');
+        Route::get('/photos-create','PhotoController@create')->name('photos.create');
+        Route::get('/photos-edit/{id}','PhotoController@edit')->name('photos.edit');
+        Route::post('/photos/{id}','PhotoController@update')->name('photos.update');
+        Route::get('/photos-show/{id}/{status}', 'PhotoController@show')->name('photos.show');
+        Route::get('/photos-delete/{id}', 'PhotoController@destroy')->name('photos.destroy');
+
+    });
+
+    Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'Gallery'], function () {
+        Route::get('/videos-list', 'VideoController@index')->name('videos.index');
+        Route::post('/videos-store', 'VideoController@store')->name('videos.store');
+        Route::get('/dataProcessingVideos','VideoController@dataProcessingVideos')->name('videos.dataprocessingProject');
+        Route::get('/videos-create','VideoController@create')->name('videos.create');
+        Route::get('/videos-edit/{id}','VideoController@edit')->name('videos.edit');
+        Route::post('/videos/{id}','VideoController@update')->name('videos.update');
+        Route::get('/videos-show/{id}/{status}', 'VideoController@show')->name('videos.show');
+        Route::get('/videos-delete/{id}', 'VideoController@destroy')->name('videos.destroy');
+
+    });
+   
    
     
     

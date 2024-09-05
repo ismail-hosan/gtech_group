@@ -8,6 +8,7 @@ use App\Mail\Order;
 use App\Models\Blog;
 use App\Models\Career;
 use App\Models\Company;
+use App\Models\OurClient;
 use App\Models\Service;
 use App\Models\Project;
 use App\Models\Projectimage;
@@ -97,6 +98,16 @@ class PagesController extends Controller
         $blogs = Blog::latest('id')->paginate();
         $meta = Company::orderBy('id', 'DESC')->pluck('blog_meta')->first();
         return view('frontant_with_extra_path.pages.blogs', get_defined_vars());
+    }
+
+
+    public function concernshow(Request $request,$slug)
+    {
+        // dd($slug);
+        $client = OurClient::where('slug', $slug)->first();
+        $title = $client->name ?? 'Blog Title';
+        $meta = Company::orderBy('id', 'DESC')->pluck('blog_meta')->first();
+        return view('frontant_with_extra_path.pages.concern-show', get_defined_vars()); 
     }
 
 

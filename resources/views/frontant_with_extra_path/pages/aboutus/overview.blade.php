@@ -17,18 +17,12 @@ Overview
     .overlay-container img{
         height: 60px;
     }
-    .article h3 {
-    font-size: 42px;
-    color: #10245a;
-    }
-    
-    .article p {
-    font-size: 26px;
-    text-align: justify;
-    }
+   
+
     
     .article {
     margin-top: 60px;
+    margin-left: 50px;
     }
 </style>
 
@@ -37,130 +31,74 @@ Overview
 <!-- section start -->
 <!-- ================ -->
 
-{{-- <div class="section gray-bg clearfix">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12"></div>
-            <h1 class="page-title">Our Testimunials</h1>
-            <div class="separator-2"></div>
-        </div>
-    </div>
-    <div class="owl-carousel content-slider">
-        @if(!$testimunials->isEmpty())
-        @foreach($testimunials as $value)
-        <div class="testimonial">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="testimonial-image">
-
-                            <img src="{{asset('public/backend/testimonial/'.$value->image)}}"
-alt="{{ $value->alt ?? 'IT Way BD' }}" class="img-circle fixed-dimention bordered">
-
-</div>
-<div class="testimonial-body">
-    <div>{!! $value->message ?? "N/A" !!}</div>
-    <div class="testimonial-info-1">- {{$value->customer->name}}</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-@endforeach
-@endif
-</div>
-</div> --}}
 
 <div class="section clearfix">
     <div class="container sec-padding">
-        <div class="row sec-padding">
-            <div class="main col-md-12">
-        
-                <!-- page-title start -->
-                <!-- ================ -->
-                <h1 class="page-title">{{$aboutpage->title??"N/A"}}</h1>
-                <div class="separator-2"></div>
-        
-                @if ($aboutpage->tagline)
-                <p>{{$aboutpage->tagline}}</p>
-                @endif
-                <hr>
-                <!-- page-title end -->
-                <div class="row">
-                    <div class="{{$aboutpage->image ? 'col-md-6' : 'col-md-9'}}">
-                        {!! $aboutpage->description !!}
-                    </div>
-                    <!-- sidebar start -->
-        
-                    @if($aboutpage->image)
-                    <aside class="sidebar col-md-6">
-                        <img class="img-responsive col-xs-12" src="{{asset('public/backend/aboutus/'. $aboutpage->image)}}"
-                            width="900px" height="auto" alt="{{ $aboutpage->alt ?? 'IT Way BD' }}">
-                    </aside>
-                    @endif
-                    <!-- sidebar end -->
-                </div>
-        
-            </div>
-        </div>
         <div class="row">
-            <div class="col-lg-6">
+             <div class="col-lg-4">
+                <img src="{{ asset('/public/frontant/images/vision.png')}}" alt="" style="border-radius: 20px;">
+            </div>
+            <div class="col-lg-8 col-sm-12">
                 <div class="overview-item">
                     <div class="article">
-                        <h3>OUR Mission</h3>
-                        <p>Our mission is to achieve customer satisfaction. For that, we provide time tested, secure, reliable &
-                            cost- effective
-                            management level business solutions to our customers.</p>    
+                        <h3>VISION</h3>
+                        <p>To be the builder of choice by potential clients for reliable execution</p>    
                     </div>    
                 </div>
             </div>
-            <div class="col-lg-6">
-                <img src="{{ asset('/public/frontant/images/vision.jpg')}}" alt="">
-            </div>
+           
         </div>
+        <div class="row" style="margin-top: 26px;background-color: #E4FFFD;">
+            <div class="col-lg-7 col-sm-12">
+                <div class="overview-item">
+                    <div class="article">
+                        <h3>MISSION</h3>
+                                                    
+
+                        <ul>
+                            <li><p>To establish ourselves as a reliable real estate development company that delivers exceptional value to our clients.</p></li>
+                        </ul>
+                        <ul>
+                            <li><p>To create living spaces that meet the unique needs and aspirations of our clients.</p></li>
+                        </ul>
+                        <ul>
+                            <li><p>To continuously innovate and adopt the latest technology and construction methods to enhance the quality and efficiency of our projects.</p></li>
+                        </ul>
+                        <ul>
+                            <li><p>To foster a culture of transparency, accountability, and open communication with our clients, partners, and stakeholders.</p></li>
+                        </ul>
+                        <ul>
+                            <li><p>To provide our employees with a safe, fulfilling, and challenging work environment that promotes personal and professional growth.</p></li>
+                        </ul>
+                        <ul>
+                            <li><p>To contribute to the growth and development of our communities by creating job opportunities and supporting local initiatives.</p></li>
+                        </ul>
+                        <ul>
+                            <li><p>To continuously learn, adapt, and evolve to stay ahead of the curve and deliver exceptional value to our clients and stakeholders.</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center">
+                <img src="{{ asset('/public/frontant/images/mission.jpg')}}" alt="" style="border-radius: 20px;margin-top: 88px;">
+            </div>
+        </div>  
         <div class="row" style="margin-top: 26px;">
-            <div class="col-lg-6">
-                <img src="{{ asset('/public/frontant/images/vision.jpg')}}" alt="">
+             <div class="col-lg-6 col-sm-12">
+                <img src="{{ asset('/public/frontant/images/value.jpg')}}" alt="" style="border-radius: 20px;margin-top: 88px;">
             </div>
             <div class="col-lg-6">
                 <div class="overview-item">
                     <div class="article">
-                        <h3>OUR Vision</h3>
-                        <p>Our vision is to be trusted & respected everywhere as a leading software company & our industry to
-                            delivering &
-                            developing innovative solutions for our customers to improve their day to day business growth.</p>
+                        <h3>VALUES</h3>
+                        <p><b>Customer Satisfaction:</b> At bel, customer satisfaction is not just a buzzword – it’s at the heart of everything we do. We believe that our clients are the lifeblood of our business, and their satisfaction is a testament to the quality of our work and the strength of our relationships.</p>
+                        <p><b>Quality:</b> We believe that quality is not just a goal – it’s a non-negotiable standard that guides every aspect of our work. We understand that our clients are making a significant investment in their homes, and we are committed to delivering a level of quality that exceeds their expectations.
+                        </p>
+                        <p><b>Timely Handover:</b> We believe that timely handover is not just about meeting deadlines but also about honoring our commitments to our clients, maintaining their trust, and creating a positive reputation for our company. We understand that delays can cause inconvenience, frustration, and financial losses to our clients, and we do everything in our power to avoid them.</p>
                     </div>
                 </div>
             </div>
         </div>  
-        <div class="row" style="margin-top: 26px;">
-            <div class="col-lg-6">
-                <div class="overview-item">
-                    <div class="article">
-                        <h3>Ensure Top Quality</h3>
-                        <p>Quality is most important to IT WAY BD. IT WAY BD has emphasized on quality management practices from the very
-                        beginning, IT WAY BD practices world class quality management tools to ensure consistent quality of its products.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <img src="{{ asset('/public/frontant/images/vision.jpg')}}" alt="">
-            </div>
-        </div>  
-        <div class="row" style="margin-top: 26px;">
-            <div class="col-lg-6">
-                <img src="{{ asset('/public/frontant/images/vision.jpg')}}" alt="">
-            </div>
-            <div class="col-lg-6">
-                <div class="overview-item">
-                    <div class="article">
-                        <h3>Our Strength</h3>
-                        <p>Experienced team of young energetic & senior professionals, whose dedication & creativity on various projects improve
-                        our company strength gradually.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
        
 </div>

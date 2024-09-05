@@ -145,6 +145,7 @@ class OurTeamRepositories
         $OurTeam->serial = $request->serial;
         $OurTeam->department_id = $request->department_id;
         $OurTeam->designation_id = $request->designation_id;
+        $OurTeam->s_degination = $request->s_degination;
 
         $image = $request->image->getClientOriginalName();
         $request->image->move(public_path() . '/backend/team/', $image);
@@ -162,6 +163,7 @@ class OurTeamRepositories
         $OurTeam->serial = $request->serial;
         $OurTeam->department_id = $request->department_id;
         $OurTeam->designation_id = $request->designation_id;
+        $OurTeam->s_degination = $request->s_degination;
 
         if ($request->hasFile('image')) {
             $image = $request->image->getClientOriginalName();

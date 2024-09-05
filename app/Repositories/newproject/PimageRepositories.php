@@ -79,7 +79,7 @@ class PimageRepositories
         if ($OurClient) {
             foreach ($OurClient as $key => $eOurClient) {
                 $nestedData['id'] = $key + 1;
-                $nestedData['project_Name'] = $eOurClient->project->name;
+                $nestedData['project_id'] = $eOurClient->project_id;
                 $nestedData['type'] = $eOurClient->type;
                 $nestedData['title'] = $eOurClient->title;
                 $nestedData['desc'] = $eOurClient->desc;

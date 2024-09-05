@@ -15,7 +15,12 @@ class CreateOurClientsTable extends Migration
     {
         Schema::create('our_clients', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
             $table->string('logo');
+            $table->string('name');
+            $table->string('slug');
+            $table->string('image')->nullable();
+            $table->longText('description')->nullable();
             $table->longText('meta')->nullable();
             $table->integer('orderNo')->nullable()->default(0);
             $table->enum('status', ['Active', 'Inactive'])->default('Active');
